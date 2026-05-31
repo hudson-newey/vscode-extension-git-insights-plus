@@ -12,9 +12,20 @@
   "engines": {
     "vscode": "^1.85.0"
   },
-  "categories": ["SCM Providers", "Other"],
-  "keywords": ["git", "merge conflicts", "collaboration", "team", "branches"],
-  "activationEvents": ["onStartupFinished"],
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "keywords": [
+    "git",
+    "merge conflicts",
+    "collaboration",
+    "team",
+    "branches"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -81,6 +92,7 @@
     "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "@vscode/vsce": "^3.9.1",
     "eslint": "^8.0.0",
     "typescript": "^5.3.0"
   }
