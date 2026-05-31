@@ -69,6 +69,8 @@
     }
   },
   "scripts": {
+    "prepublish": "pnpm run compile && pnpm run package",
+    "package": "vsce package",
     "vscode:prepublish": "pnpm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc --watch -p ./",
