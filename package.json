@@ -1,0 +1,85 @@
+{
+  "name": "git-insights-plus",
+  "displayName": "Git Insights Plus",
+  "description": "Reduce merge conflicts by showing active collaborators on the current file via git branch history",
+  "version": "0.1.0",
+  "publisher": "hudson-newey",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hudson-newey/vscode-extension-git-insights-plus"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["SCM Providers", "Other"],
+  "keywords": ["git", "merge conflicts", "collaboration", "team", "branches"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gitInsightsPlus.refresh",
+        "title": "Refresh Active Branches",
+        "category": "Git Insights Plus",
+        "icon": "$(sync)"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "gitInsightsPlus.refresh",
+          "group": "navigation",
+          "when": "editorIsOpen"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Git Insights Plus",
+      "properties": {
+        "gitInsightsPlus.activeDaysThreshold": {
+          "type": "number",
+          "default": 3,
+          "minimum": 1,
+          "maximum": 30,
+          "description": "Number of days to consider a branch as recently active."
+        },
+        "gitInsightsPlus.maxVisibleAvatars": {
+          "type": "number",
+          "default": 3,
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Maximum number of visible user avatars before showing an overflow count."
+        },
+        "gitInsightsPlus.refreshIntervalMinutes": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 60,
+          "description": "How often to automatically refresh branch information (in minutes)."
+        },
+        "gitInsightsPlus.maxBranchesToCheck": {
+          "type": "number",
+          "default": 50,
+          "minimum": 10,
+          "maximum": 200,
+          "description": "Maximum number of remote branches to check for file modifications."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc --watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.x",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.3.0"
+  }
+}
